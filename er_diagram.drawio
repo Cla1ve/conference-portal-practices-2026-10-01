@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram name="ER диаграмма">
+    <mxGraphModel dx="1180" dy="720" page="1" pageWidth="1180" pageHeight="720">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="user" value="&lt;b&gt;Пользователь (user)&lt;/b&gt;&lt;hr/&gt;PK id : INTEGER&lt;br/&gt;  login : VARCHAR(50)&lt;br/&gt;  password_hash : VARCHAR(255)&lt;br/&gt;  fio : VARCHAR(150)&lt;br/&gt;  email : VARCHAR(100)&lt;br/&gt;  phone : VARCHAR(18)&lt;br/&gt;  role : VARCHAR(20)&lt;br/&gt;  session_version : INTEGER" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=15;fillColor=#ffffff;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="20" y="80" width="340" height="270" />
+        </mxCell>
+        <mxCell id="request" value="&lt;b&gt;Заявка (request)&lt;/b&gt;&lt;hr/&gt;PK id : INTEGER&lt;br/&gt;FK user_id : INTEGER&lt;br/&gt;FK event_id : INTEGER&lt;br/&gt;FK status_id : INTEGER&lt;br/&gt;  payment_method : VARCHAR(30)&lt;br/&gt;  created_at : DATETIME" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=15;fillColor=#ffffff;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="420" y="100" width="340" height="225" />
+        </mxCell>
+        <mxCell id="event" value="&lt;b&gt;Мероприятие (event)&lt;/b&gt;&lt;hr/&gt;PK id : INTEGER&lt;br/&gt;  name : VARCHAR(200)&lt;br/&gt;  date : DATE&lt;br/&gt;  start_time : VARCHAR(5)&lt;br/&gt;  place : VARCHAR(200)&lt;br/&gt;  description : TEXT" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=15;fillColor=#ffffff;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="820" y="80" width="340" height="270" />
+        </mxCell>
+        <mxCell id="status" value="&lt;b&gt;Статус (status)&lt;/b&gt;&lt;hr/&gt;PK id : INTEGER&lt;br/&gt;  name : VARCHAR(50)" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=15;fillColor=#ffffff;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="80" y="445" width="280" height="115" />
+        </mxCell>
+        <mxCell id="review" value="&lt;b&gt;Отзыв (review)&lt;/b&gt;&lt;hr/&gt;PK id : INTEGER&lt;br/&gt;FK request_id : INTEGER&lt;br/&gt;  text : TEXT&lt;br/&gt;  rating : INTEGER&lt;br/&gt;  created_at : DATETIME" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=15;fillColor=#ffffff;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="730" y="430" width="360" height="205" />
+        </mxCell>
+        <mxCell id="edge0" value="1 : M" source="user" target="request" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;endArrow=none;startArrow=none;html=1;fontSize=14;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge1" value="1 : M" source="event" target="request" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;endArrow=none;startArrow=none;html=1;fontSize=14;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge2" value="1 : M" source="status" target="request" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;endArrow=none;startArrow=none;html=1;fontSize=14;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="220" y="385" />
+              <mxPoint x="520" y="385" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge3" value="1 : 0..1" source="request" target="review" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;endArrow=none;startArrow=none;html=1;fontSize=14;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="660" y="390" />
+              <mxPoint x="910" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

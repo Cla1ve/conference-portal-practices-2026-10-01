@@ -18,6 +18,7 @@ def create_app(config=None):
                       DATABASE_PATH=os.environ.get('DATABASE_PATH',str(ROOT/'database/conference.db')))
     if config:
         app.config.update(config)
+    app.json.ensure_ascii=False
     app.db=initialize(app.config['DATABASE_PATH'])
 
     @app.before_request

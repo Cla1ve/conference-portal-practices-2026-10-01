@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="720" viewBox="0 0 1180 720">
+<rect width="1180" height="720" fill="white"/>
+<text x="590" y="35" text-anchor="middle" font-family="Arial" font-size="24">База данных Конференции.РФ</text>
+<rect x="20" y="80" width="340" height="270" fill="white" stroke="#333" stroke-width="2"/>
+<rect x="20" y="80" width="340" height="36" fill="#e6edf3" stroke="#333"/>
+<text x="190.0" y="104" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold">Пользователь (user)</text>
+<text x="32" y="140" font-family="Arial" font-size="15" text-decoration="underline">PK id : INTEGER</text>
+<text x="32" y="163" font-family="Arial" font-size="15" >  login : VARCHAR(50)</text>
+<text x="32" y="186" font-family="Arial" font-size="15" >  password_hash : VARCHAR(255)</text>
+<text x="32" y="209" font-family="Arial" font-size="15" >  fio : VARCHAR(150)</text>
+<text x="32" y="232" font-family="Arial" font-size="15" >  email : VARCHAR(100)</text>
+<text x="32" y="255" font-family="Arial" font-size="15" >  phone : VARCHAR(18)</text>
+<text x="32" y="278" font-family="Arial" font-size="15" >  role : VARCHAR(20)</text>
+<text x="32" y="301" font-family="Arial" font-size="15" >  session_version : INTEGER</text>
+<rect x="420" y="100" width="340" height="225" fill="white" stroke="#333" stroke-width="2"/>
+<rect x="420" y="100" width="340" height="36" fill="#e6edf3" stroke="#333"/>
+<text x="590.0" y="124" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold">Заявка (request)</text>
+<text x="432" y="160" font-family="Arial" font-size="15" text-decoration="underline">PK id : INTEGER</text>
+<text x="432" y="183" font-family="Arial" font-size="15" >FK user_id : INTEGER</text>
+<text x="432" y="206" font-family="Arial" font-size="15" >FK event_id : INTEGER</text>
+<text x="432" y="229" font-family="Arial" font-size="15" >FK status_id : INTEGER</text>
+<text x="432" y="252" font-family="Arial" font-size="15" >  payment_method : VARCHAR(30)</text>
+<text x="432" y="275" font-family="Arial" font-size="15" >  created_at : DATETIME</text>
+<rect x="820" y="80" width="340" height="270" fill="white" stroke="#333" stroke-width="2"/>
+<rect x="820" y="80" width="340" height="36" fill="#e6edf3" stroke="#333"/>
+<text x="990.0" y="104" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold">Мероприятие (event)</text>
+<text x="832" y="140" font-family="Arial" font-size="15" text-decoration="underline">PK id : INTEGER</text>
+<text x="832" y="163" font-family="Arial" font-size="15" >  name : VARCHAR(200)</text>
+<text x="832" y="186" font-family="Arial" font-size="15" >  date : DATE</text>
+<text x="832" y="209" font-family="Arial" font-size="15" >  start_time : VARCHAR(5)</text>
+<text x="832" y="232" font-family="Arial" font-size="15" >  place : VARCHAR(200)</text>
+<text x="832" y="255" font-family="Arial" font-size="15" >  description : TEXT</text>
+<rect x="80" y="445" width="280" height="115" fill="white" stroke="#333" stroke-width="2"/>
+<rect x="80" y="445" width="280" height="36" fill="#e6edf3" stroke="#333"/>
+<text x="220.0" y="469" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold">Статус (status)</text>
+<text x="92" y="505" font-family="Arial" font-size="15" text-decoration="underline">PK id : INTEGER</text>
+<text x="92" y="528" font-family="Arial" font-size="15" >  name : VARCHAR(50)</text>
+<rect x="730" y="430" width="360" height="205" fill="white" stroke="#333" stroke-width="2"/>
+<rect x="730" y="430" width="360" height="36" fill="#e6edf3" stroke="#333"/>
+<text x="910.0" y="454" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold">Отзыв (review)</text>
+<text x="742" y="490" font-family="Arial" font-size="15" text-decoration="underline">PK id : INTEGER</text>
+<text x="742" y="513" font-family="Arial" font-size="15" >FK request_id : INTEGER</text>
+<text x="742" y="536" font-family="Arial" font-size="15" >  text : TEXT</text>
+<text x="742" y="559" font-family="Arial" font-size="15" >  rating : INTEGER</text>
+<text x="742" y="582" font-family="Arial" font-size="15" >  created_at : DATETIME</text>
+<polyline points="360,220 420,220" fill="none" stroke="#333" stroke-width="2"/>
+<rect x="350.0" y="195.0" width="80" height="23" fill="white"/><text x="390.0" y="212.0" text-anchor="middle" font-family="Arial" font-size="15">1 : M</text>
+<polyline points="820,220 760,220" fill="none" stroke="#333" stroke-width="2"/>
+<rect x="750.0" y="195.0" width="80" height="23" fill="white"/><text x="790.0" y="212.0" text-anchor="middle" font-family="Arial" font-size="15">1 : M</text>
+<polyline points="220,445 220,385 520,385 520,325" fill="none" stroke="#333" stroke-width="2"/>
+<rect x="330.0" y="360.0" width="80" height="23" fill="white"/><text x="370.0" y="377.0" text-anchor="middle" font-family="Arial" font-size="15">1 : M</text>
+<polyline points="660,325 660,390 910,390 910,430" fill="none" stroke="#333" stroke-width="2"/>
+<rect x="745.0" y="365.0" width="80" height="23" fill="white"/><text x="785.0" y="382.0" text-anchor="middle" font-family="Arial" font-size="15">1 : 0..1</text>
+<text x="590" y="680" text-anchor="middle" font-family="Arial" font-size="17">Пользователь M:N Мероприятие через Заявку. UNIQUE review.request_id: не более одного отзыва.</text></svg>

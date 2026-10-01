@@ -1,6 +1,7 @@
 import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
 from backend.models.base_model import BaseModel
+from backend.database import Database
 from backend.validators.validators import Validator
 
 
@@ -37,6 +38,6 @@ class User(BaseModel):
     def authenticate(login, password, db=None):
         if not isinstance(login, str) or not isinstance(password, str) or len(password) > 128:
             return None
-        db = db or __import__('backend.database', fromlist=['Database']).Database()
+        db = db or Database()
         user = db.fetch_one('SELECT * FROM user WHERE login=?', (login.strip(),))
         return user if user and check_password_hash(user['password_hash'], password) else None
