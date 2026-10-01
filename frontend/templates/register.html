@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Регистрация | Конференции.РФ{% endblock %}
+{% block scripts %}<script src="{{ url_for('static',filename='js/register.js') }}" defer></script>{% endblock %}
+{% block content %}
+<section class="form"><h1>Регистрация</h1><p>Заполните все поля, чтобы отправлять заявки на помещение.</p>
+<form id="registerForm" novalidate>
+<label>Логин<input id="login" name="login" autocomplete="username" required minlength="6" maxlength="50" placeholder="Латиница и цифры, от 6 символов"></label>
+<label>Пароль<input id="password" name="password" type="password" autocomplete="new-password" required minlength="8" maxlength="128" placeholder="От 8 символов"></label>
+<label>ФИО<input id="fio" name="fio" autocomplete="name" required maxlength="150" placeholder="Иванов Иван Иванович"></label>
+<label>Телефон<input id="phone" name="phone" autocomplete="tel" required placeholder="8(999)123-45-67"></label>
+<label>Email<input id="email" name="email" type="email" autocomplete="email" required maxlength="100" placeholder="student@example.ru"></label>
+<p id="message" role="status" aria-live="polite"></p><button>Создать пользователя</button>
+</form><p><a href="/api/auth/login">Уже зарегистрированы? Войти</a></p></section>
+{% endblock %}

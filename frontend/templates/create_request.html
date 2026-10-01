@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Новая заявка | Конференции.РФ{% endblock %}
+{% block scripts %}<script src="{{ url_for('static',filename='js/request.js') }}" defer></script>{% endblock %}
+{% block content %}
+<section class="form"><h1>Новая заявка</h1><p>Укажите помещение и желаемое начало конференции.</p>
+<form id="requestForm" novalidate>
+<label>Название помещения<input name="name" required maxlength="200" placeholder="Аудитория №101"></label>
+<label>Тип помещения<select name="place"><option>Аудитория</option><option>Коворкинг</option><option>Кинозал</option></select></label>
+<div class="two"><label>Дата начала<input name="date" required placeholder="ГГГГ-ММ-ДД" maxlength="10"></label>
+<label>Время начала<input name="start_time" required placeholder="ЧЧ:ММ" maxlength="5"></label></div>
+<label>Способ оплаты<select name="payment_method"><option>При очном посещении</option><option>СБП</option></select></label>
+<p id="message" role="status" aria-live="polite"></p><button>Отправить</button>
+</form><p><a href="/dashboard">Вернуться к заявкам</a></p></section>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Администратор | Конференции.РФ{% endblock %}
+{% block scripts %}<script src="{{ url_for('static',filename='js/admin.js') }}" defer></script>{% endblock %}
+{% block content %}
+<h1>Панель администратора</h1><p>Все заявки пользователей. Выберите статус и сохраните изменение.</p>
+<p id="message" role="status"></p>
+<div class="table"><table><thead><tr><th>№</th><th>Пользователь</th><th>Помещение</th><th>Дата и время</th><th>Оплата</th><th>Статус</th><th>Действие</th></tr></thead><tbody>
+{% for r in requests %}<tr><td>{{ r.id }}</td><td>{{ r.login }}<br><small>{{ r.fio }}</small></td><td>{{ r.name }}<br><small>{{ r.place }}</small></td><td>{{ r.date }}<br>{{ r.start_time }}</td><td>{{ r.payment_method }}</td><td><select aria-label="Статус заявки {{ r.id }}" data-status="{{ r.id }}">
+{% for id,name in [(1,'Новая'),(2,'Мероприятие назначено'),(3,'Завершено')] %}<option value="{{ id }}" {% if id==r.status_id %}selected{% endif %}>{{ name }}</option>{% endfor %}
+</select></td><td><button class="saveStatus" data-id="{{ r.id }}">Сохранить</button></td></tr>
+{% else %}<tr><td colspan="7">Заявок пока нет.</td></tr>{% endfor %}
+</tbody></table></div>
+{% endblock %}

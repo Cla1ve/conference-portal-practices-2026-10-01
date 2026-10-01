@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Мои заявки | Конференции.РФ{% endblock %}
+{% block scripts %}<script src="{{ url_for('static',filename='js/request.js') }}" defer></script>{% endblock %}
+{% block content %}
+<div class="heading"><h1>Мои заявки</h1><a class="button" href="/create_request">Создать заявку</a></div>
+<p>Здесь отображаются ваши бронирования и отзывы.</p><p id="message" role="status"></p>
+{% for r in requests %}
+<article><div class="heading"><h2>Заявка №{{ r.id }} · {{ r.name }}</h2><span class="status">{{ r.status }}</span></div>
+<p>{{ r.place }} · {{ r.date }} в {{ r.start_time }} · Оплата: {{ r.payment_method }}</p>
+{% if r.review_text %}<p><strong>Ваш отзыв {{ r.review_rating }}/5:</strong> {{ r.review_text }}</p>
+{% elif r.status_id==3 %}<form class="reviewForm" data-id="{{ r.id }}">
+<label>Отзыв о мероприятии<textarea name="text" required maxlength="2000"></textarea></label>
+<label>Оценка<select name="rating">{% for n in range(5,0,-1) %}<option value="{{ n }}">{{ n }}</option>{% endfor %}</select></label>
+<button>Оставить отзыв</button></form>
+{% else %}<p class="muted">Отзыв можно оставить после завершения мероприятия.</p>{% endif %}</article>
+{% else %}<article><p>У вас пока нет заявок.</p></article>{% endfor %}
+{% endblock %}

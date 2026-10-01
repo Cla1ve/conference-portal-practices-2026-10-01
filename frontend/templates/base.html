@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>{% block title %}Конференции.РФ{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+  <script src="{{ url_for('static',filename='js/common.js') }}" defer></script>
+  {% block scripts %}{% endblock %}
+</head>
+<body>
+<header><a class="brand" href="/">Конференции.РФ</a><span>Бронирование помещений</span>
+{% if g.user %}<nav><span>{{ g.user.login }}</span><button class="secondary" id="logout">Выйти</button></nav>{% endif %}
+</header>
+<main>{% block content %}{% endblock %}</main>
+<footer>Учебный портал для проведения конференций</footer>
+</body>
+</html>

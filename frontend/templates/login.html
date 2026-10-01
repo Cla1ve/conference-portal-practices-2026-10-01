@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Вход | Конференции.РФ{% endblock %}
+{% block scripts %}<script src="{{ url_for('static',filename='js/login.js') }}" defer></script>{% endblock %}
+{% block content %}
+<section class="form"><h1>Вход в систему</h1><p>Войдите, чтобы просмотреть свои заявки.</p>
+<form id="loginForm"><label>Логин<input name="login" id="login" autocomplete="username" required></label>
+<label>Пароль<input name="password" id="password" type="password" autocomplete="current-password" required maxlength="128"></label>
+<p id="message" role="status" aria-live="polite"></p><button>Войти</button></form>
+<p><a href="/api/auth/register">Еще не зарегистрированы? Регистрация</a></p></section>
+{% endblock %}
