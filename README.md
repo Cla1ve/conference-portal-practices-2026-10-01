@@ -53,3 +53,17 @@ python test_sql_injection.py
 на изменяющих запросах. Отзывы и списки выводятся с HTML-экранированием.
 Сессия действует 30 минут бездействия; при входе и выходе меняется версия
 сессии пользователя, поэтому предыдущая cookie теряет доступ.
+
+## Отчёты и результаты
+
+`reports/` содержит четыре отчёта Word и PDF по шаблону колледжа.
+`screenshots/` содержит реальные снимки сайта и окон терминала SQLite и Python.
+`browser-results.json` содержит результат проверки полного сценария в браузере
+и фактические признаки session cookie, без её значения.
+Все 22 автоматические проверки выполнены успешно.
+
+Источники задания: [ТЗ, страницы 29–31](https://github.com/softboxdev/web_development_course/blob/main/%D0%9A%D0%98%D0%9C%2009.02.07-3-2027%20%D0%A2%D0%BE%D0%BC%201.pdf),
+[ER](https://github.com/softboxdev/web_development_course/blob/main/practice_er_datagrams.md),
+[SQLite](https://github.com/softboxdev/web_development_course/blob/main/practice_sql_database_preparation.md),
+[модули](https://github.com/softboxdev/web_development_course/blob/main/information_system_modules.md),
+[безопасность](https://github.com/softboxdev/web_development_course/blob/main/practice_security_sessions.md).

@@ -1,0 +1,13 @@
+{
+  "request_id": 2,
+  "errors": [],
+  "cookie": {
+    "name": "conf_session",
+    "httpOnly": true,
+    "sameSite": "Lax",
+    "secure": false
+  },
+  "student_login": "elmurat2027",
+  "admin_status_change": true,
+  "review_saved": true
+}
